@@ -1,0 +1,32 @@
+{
+    "name": "especialistaphp/rafael",
+    "description": "Teste técnico para vaga de especialista PHP",
+    "type": "project",
+    "license": "MIT",
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "./config/config.php",
+            "./config/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Rafael Oliveira",
+            "email": "playsson.fael@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0",
+        "illuminate/database": "^11.29",
+        "laravel/serializable-closure": "^2.0",
+        "illuminate/pagination": "^11.36",
+        "symfony/dotenv": "7.4.x-dev"
+    }
+}
