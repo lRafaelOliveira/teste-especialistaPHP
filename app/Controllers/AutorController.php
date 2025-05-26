@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Illuminate\Database\Capsule\Manager as Capsule;
 use App\Core\Controller;
 use App\Models\Autor;
 
@@ -24,20 +25,17 @@ class AutorController extends Controller
     public function store()
     {
         $nome = trim($this->request->input('nome'));
-        $erros = [];
-
-        if (!$nome) $erros[] = "Nome é obrigatório.";
-
-        if ($erros) {
-            $this->withError($erros);
+        if (!$nome) {
+            $this->withError('Nome é obrigatório.');
             $this->redirect('/autores/criar');
         }
 
-        $autor = new Autor();
-        $autor->nome = $nome;
-        $autor->save();
-
-        $this->with("Autor cadastrado com sucesso!");
+        try {
+            Capsule::connection()->statement('CALL sp_criar_autor(?)', [$nome]);
+            $this->with('Autor cadastrado com sucesso!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $this->withError($e->getMessage());
+        }
         $this->redirect('/autores');
     }
 
