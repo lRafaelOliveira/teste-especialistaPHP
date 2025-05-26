@@ -108,3 +108,20 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+-- Procedue para criar novo assunto 
+DELIMITER $$
+
+CREATE PROCEDURE sp_criar_assunto (
+    IN p_descricao VARCHAR(255)
+)
+BEGIN
+    -- Opcional: verifica se já existe
+    IF EXISTS (SELECT 1 FROM assuntos WHERE descricao = p_descricao) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Assunto já cadastrado!';
+    ELSE
+        INSERT INTO assuntos (descricao) VALUES (p_descricao);
+    END IF;
+END$$
+
+DELIMITER ;
