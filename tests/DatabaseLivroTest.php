@@ -21,6 +21,146 @@ class DatabaseLivroTest extends TestCase
     {
         $livros = [
             [
+                'titulo' => 'O Grande Conflito',
+                'valor' => 45.00,
+                'data_publicacao' => '1911-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Profecia', 'História Bíblica']
+            ],
+            [
+                'titulo' => 'Caminho a Cristo',
+                'valor' => 25.00,
+                'data_publicacao' => '1892-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Espiritualidade', 'Cristianismo']
+            ],
+            [
+                'titulo' => 'O Desejado de Todas as Nações',
+                'valor' => 50.00,
+                'data_publicacao' => '1898-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Cristologia', 'Evangelhos']
+            ],
+            [
+                'titulo' => 'A Ciência do Bom Viver',
+                'valor' => 40.00,
+                'data_publicacao' => '1905-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Saúde', 'Bem-estar']
+            ],
+            [
+                'titulo' => 'Educação',
+                'valor' => 38.00,
+                'data_publicacao' => '1903-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Educação', 'Pedagogia']
+            ],
+            [
+                'titulo' => 'Parábolas de Jesus',
+                'valor' => 35.00,
+                'data_publicacao' => '1900-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Parábolas', 'Ensino de Jesus']
+            ],
+            [
+                'titulo' => 'Atos dos Apóstolos',
+                'valor' => 48.00,
+                'data_publicacao' => '1911-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Igreja Primitiva', 'Atos dos Apóstolos']
+            ],
+            [
+                'titulo' => 'Patriarcas e Profetas',
+                'valor' => 50.00,
+                'data_publicacao' => '1890-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Antigo Testamento', 'História Bíblica']
+            ],
+            [
+                'titulo' => 'Profetas e Reis',
+                'valor' => 52.00,
+                'data_publicacao' => '1917-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Reis de Israel', 'Profetas']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 1',
+                'valor' => 36.00,
+                'data_publicacao' => '1855-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 2',
+                'valor' => 36.00,
+                'data_publicacao' => '1868-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 3',
+                'valor' => 36.00,
+                'data_publicacao' => '1875-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 4',
+                'valor' => 36.00,
+                'data_publicacao' => '1881-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 5',
+                'valor' => 36.00,
+                'data_publicacao' => '1889-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 6',
+                'valor' => 36.00,
+                'data_publicacao' => '1901-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 7',
+                'valor' => 36.00,
+                'data_publicacao' => '1902-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 8',
+                'valor' => 36.00,
+                'data_publicacao' => '1904-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Testemunhos para a Igreja Vol. 9',
+                'valor' => 36.00,
+                'data_publicacao' => '1909-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Conselhos', 'Igreja Adventista']
+            ],
+            [
+                'titulo' => 'Eventos Finais',
+                'valor' => 33.00,
+                'data_publicacao' => '1992-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Escatologia', 'Profecia']
+            ],
+            [
+                'titulo' => 'Mensagens aos Jovens',
+                'valor' => 30.00,
+                'data_publicacao' => '1930-01-01',
+                'autores' => ['Ellen G. White'],
+                'assuntos' => ['Juventude', 'Conselhos']
+            ],
+            [
                 'titulo' => 'O Enigma das Estrelas',
                 'valor' => 49.90,
                 'data_publicacao' => '2021-04-10',
