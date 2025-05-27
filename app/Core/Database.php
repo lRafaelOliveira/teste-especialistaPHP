@@ -8,6 +8,8 @@ use Illuminate\Database\Schema\Builder as SchemaBuilder;
 class Database
 {
     protected static $capsule;
+    private static $dbConfig;
+    private static $errorConnection;
 
     public static function initialize()
     {
@@ -17,11 +19,10 @@ class Database
             self::$capsule = new Capsule;
 
             // Carrega o arquivo de configuração de conexões
-            $dbConfig = require_once __DIR__ . '/../../config/database.php';
-            // debug($dbConfig, true);
+            self::$dbConfig = require_once __DIR__ . '/../../config/database.php';
             // Inicializa apenas a conexão padrão
-            if (isset($dbConfig['default'])) {
-                self::$capsule->addConnection($dbConfig['default'], 'default');
+            if (isset(self::$dbConfig['default'])) {
+                self::$capsule->addConnection(self::$dbConfig['default'], 'default');
             }
 
             // Disponibiliza o Eloquent globalmente e inicializa
@@ -31,12 +32,43 @@ class Database
 
         return self::$capsule;
     }
+    // Testa se a conexão com o banco está funcionando
+    public static function testConnection($connection = 'default')
+    {
+        try {
+            if (!self::$capsule) {
+                self::initialize();
+            }
+            $conn = self::$capsule->getConnection($connection);
+            // Executa um teste simples
+            $conn->select('SELECT 1');
+            return true;
+        } catch (\Exception $e) {
+            // Se quiser logar, coloque aqui
+            self::$errorConnection = $e->getMessage();
+            return false;
+        }
+    }
 
     // Método estático para retornar o Schema
     public static function schema(): SchemaBuilder
     {
         return self::$capsule->schema();
     }
+
+    // método estático para obter os dados de configuração do banco
+    public static function getConfig()
+    {
+        if (!self::$dbConfig) {
+            self::$dbConfig = require __DIR__ . '/../../config/database.php';
+        }
+        return self::$dbConfig;
+    }
+    public static function getErrorConnection()
+    {
+        return self::$errorConnection;
+    }
+
 
     // Método estático para obter uma conexão específica sob demanda
     public static function connection($connection = 'default')

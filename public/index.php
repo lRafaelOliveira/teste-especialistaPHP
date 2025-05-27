@@ -1,8 +1,8 @@
 <?php
 
- ini_set('display_errors', 1);
- ini_set('display_startup_errors', 1);
- error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 // ini_set('display_errors', 0);
@@ -28,6 +28,14 @@ Environment::load();
 
 // Inicializa o banco de dados com Eloquent
 Database::initialize();
+if (!Database::testConnection()) {
+    echo "<pre>";
+    print_r(Database::getErrorConnection());
+    echo "<hr>";
+    print_r(Database::getConfig());
+    die('Erro ao conectar ao banco de dados. Verifique as configurações.');
+}
+
 
 // Importa todas as rotas automaticamente
 foreach (glob(__DIR__ . '/../routes/*.php') as $routeFile) {

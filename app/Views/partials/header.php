@@ -13,13 +13,22 @@
     <!-- Header -->
     <nav class="bg-white shadow-md py-4 px-8 flex justify-between items-center">
         <div class="flex items-center space-x-3">
-            <span class="font-bold text-indigo-600 text-2xl">Biblioteca</span>
+            <span class="font-bold text-indigo-600 text-2xl">
+                <a href="/" class="text-indigo-600 hover:underline">
+                    Biblioteca
+                </a>
+            </span>
         </div>
         <div class="flex items-center space-x-4">
-            <a href="/livros" class="text-indigo-600 hover:underline">Livros</a>
-            <a href="/autores" class="text-indigo-600 hover:underline">Autores</a>
-            <a href="/assuntos" class="text-indigo-600 hover:underline">Assuntos</a>
-            <a href="/logout" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition">Sair</a>
+            <?php
+            if (is_logged()): ?>
+                <a href="/livros" class="text-indigo-600 hover:underline">Livros</a>
+                <a href="/autores" class="text-indigo-600 hover:underline">Autores</a>
+                <a href="/assuntos" class="text-indigo-600 hover:underline">Assuntos</a>
+                <a href="/logout" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition">Sair</a>
+            <?php else: ?>
+                <a href="/login" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition">Entrar</a>
+            <?php endif; ?>
         </div>
     </nav>
 

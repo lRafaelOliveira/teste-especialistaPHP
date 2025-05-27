@@ -7,21 +7,19 @@ use App\Controllers\LoginController;
 use App\Core\Route;
 use App\Controllers\PainelController;
 use App\Controllers\RegisterController;
+use App\Controllers\RelatoriosController;
 use App\Middlewares\AuthMiddleware;
-use App\Middlewares\AdminMiddleware;
 
+Route::get('/', [RelatoriosController::class, 'index'])->name('relatorios.index');
 Route::get('/login', [LoginController::class, 'showLogin']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'showRegister']);
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::middleware(AuthMiddleware::class)->group(function () {
-    Route::get('/', [PainelController::class, 'dashboard']);
     Route::get('/dashboard', [PainelController::class, 'dashboard']);
     Route::get('/usuarios', [PainelController::class, 'usuarios']);
     Route::get('/sair', [LoginController::class, 'logout']);
-
-
 
     Route::get('/livros', [LivroController::class, 'index'])->name('livros.index');
     Route::get('/livros/criar', [LivroController::class, 'create'])->name('livros.create');

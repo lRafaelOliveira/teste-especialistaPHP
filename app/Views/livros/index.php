@@ -70,5 +70,20 @@
                     <?php endforeach ?>
                 </tbody>
             </table>
+            <?php if ($livros->lastPage() > 1): ?>
+                <nav class="flex justify-center my-8">
+                    <ul class="inline-flex items-center -space-x-px">
+                        <?php for ($page = 1; $page <= $livros->lastPage(); $page++): ?>
+                            <li>
+                                <a href="?page=<?= $page ?>"
+                                    class="px-4 py-2 border <?= $livros->currentPage() == $page ? 'bg-indigo-600 text-white' : 'bg-white text-indigo-600' ?> rounded hover:bg-indigo-100 mx-1">
+                                    <?= $page ?>
+                                </a>
+                            </li>
+                        <?php endfor; ?>
+                    </ul>
+                </nav>
+            <?php endif; ?>
+
         </div>
     </main>

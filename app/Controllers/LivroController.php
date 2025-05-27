@@ -13,9 +13,14 @@ class LivroController extends Controller
     // Listar todos os livros
     public function index()
     {
-        $livros = Livro::with(['autores', 'assuntos', 'user'])->orderBy('id', 'desc')->get();
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $livros = Livro::with(['autores', 'assuntos', 'user'])
+            ->orderBy('titulo', 'asc')
+            ->paginate(10, ['*'], 'page', $page);
+
         $this->render('livros.index', ['livros' => $livros]);
     }
+
 
     // Mostrar formulário de criação
     public function create()

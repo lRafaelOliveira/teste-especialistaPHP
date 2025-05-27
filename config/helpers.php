@@ -19,12 +19,23 @@ function passwd(string $password)
 {
     return md5($password);
 }
-
+/**
+ * Verifica se a senha é válida e se o hash bate com o gerado
+ */
 function verify_passwd(string $password, string $hash)
 {
     return passwd($password) === $hash;
 }
 /**
+ * verifica se o usuário está logado
+ * @return bool
+ */
+function is_logged()
+{
+    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+}
+/**
+ * 
  * Funcao para debugar dados
  * @param mixed $data
  * @param bool $die
