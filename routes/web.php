@@ -8,6 +8,7 @@ use App\Core\Route;
 use App\Controllers\PainelController;
 use App\Controllers\RegisterController;
 use App\Controllers\RelatoriosController;
+use App\Controllers\UsuarioController;
 use App\Middlewares\AuthMiddleware;
 
 Route::get('/', [RelatoriosController::class, 'index'])->name('relatorios.index');
@@ -18,7 +19,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::middleware(AuthMiddleware::class)->group(function () {
     Route::get('/dashboard', [PainelController::class, 'dashboard']);
-    Route::get('/usuarios', [PainelController::class, 'usuarios']);
+    // Route::get('/usuarios', [PainelController::class, 'usuarios']);
     Route::get('/sair', [LoginController::class, 'logout']);
 
     Route::get('/livros', [LivroController::class, 'index'])->name('livros.index');
@@ -42,4 +43,11 @@ Route::middleware(AuthMiddleware::class)->group(function () {
     Route::get('/assuntos/{id}/editar', [AssuntoController::class, 'edit'])->name('assuntos.edit');
     Route::post('/assuntos/{id}', [AssuntoController::class, 'update'])->name('assuntos.update');
     Route::post('/assuntos/{id}/deletar', [AssuntoController::class, 'destroy'])->name('assuntos.destroy');
+    
+    Route::get('/usuarios', [UsuarioController::class, 'usuarios']);
+    Route::get('/usuarios/criar', [UsuarioController::class, 'criarUsuario']);
+    Route::post('/usuarios', [UsuarioController::class, 'storeUsuario']);
+    Route::get('/usuarios/editar/{id}', [UsuarioController::class, 'editarUsuario']);
+    Route::post('/usuarios/{id}', [UsuarioController::class, 'atualizarUsuario']);
+    Route::get('/usuarios/deletar/{id}', [UsuarioController::class, 'deletarUsuario']);
 });
