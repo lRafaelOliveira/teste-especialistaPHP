@@ -34,6 +34,11 @@ function is_logged()
 {
     return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
 }
+
+function is_admin()
+{
+    return isset($_SESSION['is_admin']) && !empty($_SESSION['is_admin']);
+}
 /**
  * 
  * Funcao para debugar dados

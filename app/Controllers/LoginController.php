@@ -22,6 +22,7 @@ class LoginController extends Controller
         if ($user && verify_passwd($password, $user->password)) {
             Session::start();
             Session::set('user_id', $user->id);
+            Session::set('is_admin', $user->role === "admin");
             $this->with('Login realizado com sucesso!');
             $this->redirect('/');
         } else {

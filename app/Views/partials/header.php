@@ -25,6 +25,7 @@
                 <a href="/livros" class="text-indigo-600 hover:underline">Livros</a>
                 <a href="/autores" class="text-indigo-600 hover:underline">Autores</a>
                 <a href="/assuntos" class="text-indigo-600 hover:underline">Assuntos</a>
+                <a href="/usuarios" class="text-indigo-600 hover:underline">Usuarios</a>
                 <a href="/logout" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition">Sair</a>
             <?php else: ?>
                 <a href="/login" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition">Entrar</a>
